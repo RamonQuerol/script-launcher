@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-SLA_DIR="$(realpath $(dirname "$0"))"
+SLA_DIR="$(dirname $(realpath "$0"))"
 
 # $1 Command name, $2 Script launcher name
 is_file_registered(){

@@ -65,7 +65,7 @@ case $1 in
         echo "$2 has been deleted from sla database"
         ;;
     help)
-
+        cat "$SLA_DIR/help.txt"
         ;;
     "")
         echo "You have to add the command, use sla help to know the available commands"

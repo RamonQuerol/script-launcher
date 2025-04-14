@@ -1,0 +1,28 @@
+Usage: sla [COMMAND NAME] [COMMAND ARGS]
+The arguments depend on the command:
+
+sla run [SCRIPT NAME]
+Runs a script from the database.
+
+sla add [SCRIPT FILE] [SCRIPT EXECUTION COMMAND]
+Adds a script to the script database.
+    
+    The [SCRIPT FILE] must have execution permissions (or at least be able to
+    be executed by the [SCRIPT EXECUTION COMMAND])
+    
+    The [SCRIPT EXECUTION COMMAND] is a string that contains the command that
+    need to be written to execute the script. When writting this command the
+    you have to place "..." where the [SCRIPT FILE] would be placed.
+
+    An example of adding a python program to the database would be:
+
+        sla add hello.py "python3 ..."
+
+    Note: When adding a script to the database the extension will be deleted,
+    so you can not have both hello.py and hello.sh in the same sla database.
+
+sla del [SCRIPT NAME]
+Deletes a script from the script database
+
+sla help
+Displays this text and exits

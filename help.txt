@@ -24,5 +24,11 @@ Adds a script to the script database.
 sla del [SCRIPT NAME]
 Deletes a script from the script database
 
+sla cp [SCRIPT NAME] [DESTINATION]
+Copies a script from the database to the [DESTINATION]
+    
+    Note: [DESTINATION] follows the same rules as the copy destination
+    argument in the bash cp command.
+
 sla help
 Displays this text and exits

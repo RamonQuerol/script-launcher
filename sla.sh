@@ -11,12 +11,18 @@ is_file_registered(){
     fi
 }
 
-# $1 = NumArgs, $2 = Expected
+# $1 = Num Args, $2 = Expected
 check_num_arguments(){
     if [ $1 -ne $2 ]; then
         echo "You did not give enough arguments, you gave $1 instead of $2 use \"sla help\" for more information"
         exit 1
     fi
+}
+
+# $1 = Launcher name
+get_script_real_name(){
+    SCRIPT_NAME_COMMENT="$(head -n 1 "$SLA_DIR/launchers/$1")"
+    echo "${SCRIPT_NAME_COMMENT:1}"
 }
 
 case $1 in
@@ -56,13 +62,17 @@ case $1 in
     del)
         check_num_arguments $# 2
         is_file_registered del $2
-        SCRIPT_NAME_COMMENT="$(head -n 1 "$SLA_DIR/launchers/$2")"
-        SCRIPT_NAME="${SCRIPT_NAME_COMMENT:1}"
 
-        rm "$SLA_DIR/scripts/$SCRIPT_NAME"
+        rm "$SLA_DIR/scripts/$(get_script_real_name $2)"
         rm "$SLA_DIR/launchers/$2"
         
         echo "$2 has been deleted from sla database"
+        ;;
+    cp)
+        check_num_arguments $# 3
+        is_file_registered cp $2
+        cp "$SLA_DIR/scripts/$(get_script_real_name $2)" $3
+        echo "$2 copied into $3"
         ;;
     help)
         cat "$SLA_DIR/help.txt"

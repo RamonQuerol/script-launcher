@@ -25,6 +25,8 @@ get_script_real_name(){
     echo "${SCRIPT_NAME_COMMENT:1}"
 }
 
+set -e # Small safeward so that the program stops if a command fails
+
 case $1 in
     
     run)

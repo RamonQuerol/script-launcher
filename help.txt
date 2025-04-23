@@ -30,5 +30,8 @@ Copies a script from the database to the [DESTINATION]
     Note: [DESTINATION] follows the same rules as the copy destination
     argument in the bash cp command.
 
+sla ls
+Displays a list of all the registered scripts in the database
+
 sla help
 Displays this text and exits

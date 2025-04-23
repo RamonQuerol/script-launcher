@@ -6,8 +6,7 @@ _sla_autocompletion(){
 
     case $COMP_CWORD in
         1)
-            options="add cp del help run"
-            # COMPREPLY=( $(compgen -W "${options}" -- ${COMP_WORDS[1]}) )
+            options="add cp del help ls run"
             ;;
         2)
             prev_command=${COMP_WORDS[1]}

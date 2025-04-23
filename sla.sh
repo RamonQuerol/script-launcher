@@ -76,6 +76,9 @@ case $1 in
         cp "$SLA_DIR/scripts/$(get_script_real_name $2)" $3
         echo "$2 copied into $3"
         ;;
+    ls)
+        ls "$SLA_DIR/launchers"
+        ;;
     help)
         cat "$SLA_DIR/help.txt"
         ;;

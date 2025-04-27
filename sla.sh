@@ -13,7 +13,7 @@ is_file_registered(){
 
 # $1 = Num Args, $2 = Expected
 check_num_arguments(){
-    if [ $1 -ne $2 ]; then
+    if [ $1 -lt $2 ]; then
         echo "You did not give enough arguments, you gave $1 instead of $2 use \"sla help\" for more information"
         exit 1
     fi
@@ -32,7 +32,8 @@ case $1 in
     run)
         check_num_arguments $# 2
         is_file_registered run $2
-        exec "$SLA_DIR/launchers/$2"
+        SLA_ARGS=${@:3}
+        eval "$SLA_DIR/launchers/$2 $SLA_ARGS"
         ;;
     add)
         check_num_arguments $# 3
@@ -56,7 +57,7 @@ case $1 in
         LAUNCHER_FILE="$SLA_DIR/launchers/$(echo $SCRIPT_NAME | cut -f 1 -d ".")"
         LAUNCHER_SCRIPT="$(echo $3 | sed "s|\.\.\.|$SCRIPT_LOC|g")"
         echo "#$SCRIPT_NAME" > $LAUNCHER_FILE
-        echo $LAUNCHER_SCRIPT >> $LAUNCHER_FILE
+        echo $LAUNCHER_SCRIPT "\$@" >> $LAUNCHER_FILE
         chmod +x $LAUNCHER_FILE
         
         echo "$2 has been registered into the sla database"

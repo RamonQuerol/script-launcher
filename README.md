@@ -10,6 +10,7 @@ The tool allows the user to:
 - Run scripts from the database (sla run)
 - Delete scripts from the database (sla del)
 - Copy scripts from the database (sla cp)
+- List all the scripts in the database (sla ls)
 
 The tool works for any kind of script, no matter if its shell, python or an executable. This is possible because the user sets the "launcher command" (for example, python3 script.py) when they add a script to the database.
 
@@ -45,5 +46,4 @@ The main goal of the tool is to make running scripts as easy as possible. That c
 ## Future improvements
 
 Although I want to keep the command simple and I will not add this features unless I find a script that need them, these improvements are:
-- Making so that the scripts can receive arguments.
 - Rename feature and making it so that you can add custom names to the script on "sla add" (Currently takes the basename of the file you added).

@@ -1,7 +1,7 @@
 Usage: sla [COMMAND NAME] [COMMAND ARGS]
 The arguments depend on the command:
 
-sla run [SCRIPT NAME]
+sla run [SCRIPT NAME] [SCRIPT ARGUMENTS]
 Runs a script from the database.
 
 sla add [SCRIPT FILE] [SCRIPT EXECUTION COMMAND]
